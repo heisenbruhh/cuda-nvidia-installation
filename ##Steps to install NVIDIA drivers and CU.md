@@ -2,29 +2,52 @@
 
 #to purge nvidia completely from system
 
+
+
 sudo apt purge nvidia* -y
+
 sudo apt remove nvidia-* -y
+
 sudo rm /etc/apt/sources.list.d/cuda*
+
 sudo apt autoremove -y && sudo apt autoclean -y
+
 sudo rm -rf /usr/local/cuda*
+
+
+
 
 #steps to install nvidia-smi
 
+
+
 sudo ubuntu-drivers list
+
+
 
 (this should give you a list of driver versions, check which version of driver is required according to the version of cuda you want to install)
 
+
+
 sudo ubuntu-drivers install nvidia:535
+
+
 
 (here we want to install cuda 12.2 and the compatible nvidia driver for it is 535)
 
 (once installed we need to restart the system)
 
+
+
 sudo reboot
 
 (once the system has restarted we can now verify the installation by typing the following)
 
+
+
 nvidia-smi
+
+
 
 (it should show the following:)
 
@@ -66,11 +89,19 @@ Thu Oct 17 10:03:48 2024
 
 (in my case it is)
 
+
+
 wget https://developer.download.nvidia.com/compute/cuda/12.2.0/local_installers/cuda_12.2.0_535.54.03_linux.run
+
+
 
 (once the file has been downloaded, run the following command:)
 
+
+
 sudo sh cuda_12.2.0_535.54.03_linux.run
+
+
 
 (follow the instructions)
 
@@ -81,7 +112,11 @@ sudo sh cuda_12.2.0_535.54.03_linux.run
 
 (to verify the installation run the folllwoing command)
 
+
+
 nvcc --version
+
+
 
 (it should give the following output:)
 
